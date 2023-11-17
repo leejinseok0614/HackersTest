@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<div id="footer" class="footer">
     <div class="inner p-r">
         <img src="http://img.hackershrd.com/common/logo_footer.png" class="logo-footer" alt="해커스 HRD LOGO" width="165"
              height="37"/>
@@ -22,4 +22,8 @@
                                 alt="고객님은 안전거래를 위해 교재(유료)가 포함된 상품을 무통장 입금으로 결제하시는 경우 챔프스터디가 가입한 LG U+의 구매안전 서비스를 이용하실 수 있습니다.* LG U+의 결제대금예치업 등록번호 : 02-006-00001"
                                 width="163" height="114"/></a>
     </div>
-</footer>
+</div>
+
+</div>
+</body>
+</html>
