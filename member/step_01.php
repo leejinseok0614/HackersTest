@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
 ?>
     <!-- header -->
 
@@ -346,7 +346,7 @@
                         <button class="js_agree_open" type="button"><em>펼치기 ▼</em></button>
                         <div class="mt10">
                             <label class="input-sp">
-                                <input id="agree_1" type="checkbox" id="agreeCheck1"/>
+                                <input type="checkbox" id="agree_Check1"/>
                                 <span class="input-txt">약관에 동의합니다.</span>
                             </label>
                         </div>
@@ -530,7 +530,7 @@
                         <button class="js_agree_open" type="button"><em>펼치기 ▼</em></button>
                         <div class="mt10">
                             <label class="input-sp">
-                                <input id="agree_2" type="checkbox" id="agreeCheck2"/>
+                                <input type="checkbox" id="agree_Check2"/>
                                 <span class="input-txt">약관에 동의합니다.</span>
                             </label>
                         </div>
@@ -539,20 +539,20 @@
 
                 <div class="all-agree-box">
                     <label class="input-sp">
-                        <input type="checkbox" id="agree-all" />
+                        <input type="checkbox" id="agree_CheckAll"/>
                         <span class="input-txt">상위 이용약관 및 개인정보 취급방침에 모두 동의합니다.</span>
                     </label>
                 </div>
 
                 <div class="box-btn">
-                    <a class="btn-l" href="/member/step_02.php">다음단계 (휴대폰인증)</a>
+                    <a class="btn-l" href="/member/step_02.php" id="next_step_btn">다음단계 (휴대폰인증)</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src ="/js/member/memberAjax.js"></script>
+    <script src="/js/member/memberAjax.js"></script>
 
 <?php
-    include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";
 ?>

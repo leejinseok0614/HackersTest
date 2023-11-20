@@ -1,12 +1,12 @@
 <?php
-    session_start();
+session_start();
 #include "member/header.php";
 #echo, print_r(), var_dump()$_SERVER['DOCUMENT_ROOT']."/header.php";
 #print_r($_SERVER);
 
-    //inclue로 절대 경로 이용
-    //header
-    include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
+//inclue로 절대 경로 이용
+//header
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
 ?>
 
 <div id="container">
@@ -445,8 +445,8 @@
 </script>
 
 <?php
-    //inclue로 절대 경로 이용
-    //footer
-    include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";
+//inclue로 절대 경로 이용
+//footer
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";
 ?>
 <!-- footer -->

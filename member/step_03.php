@@ -32,29 +32,32 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <tbody>
                         <tr>
                             <th scope="col"><span class="icons">*</span>이름</th>
-                            <td><input class="input-text" style="width:302px" type="text"/></td>
+                            <td><input class="input-text" id="name_input" style="width:302px" type="text"/></td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>아이디</th>
-                            <td><input class="input-text" placeholder="영문자로 시작하는 4~15자의 영문소문자, 숫자" style="width:302px"
+                            <td><input class="input-text" id="id_input" placeholder="영문자로 시작하는 4~15자의 영문소문자, 숫자"
+                                       style="width:302px"
                                        type="text"/><a class="btn-s-tin ml10"
                                                        href="#">중복확인</a></td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>비밀번호</th>
-                            <td><input class="input-text" placeholder="8-15자의 영문자/숫자 혼합" style="width:302px"
+                            <td><input class="input-text" id="pw_input" placeholder="8-15자의 영문자/숫자 혼합"
+                                       style="width:302px"
                                        type="password"/></td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>비밀번호 확인</th>
-                            <td><input class="input-text" style="width:302px" type="password"/></td>
+                            <td><input class="input-text" id="pw_input_check" style="width:302px" type="password"/></td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>이메일주소</th>
                             <td>
-                                <input class="input-text" style="width:138px" type="text"/> @ <input class="input-text"
-                                                                                                     style="width:138px"
-                                                                                                     type="text"/>
+                                <input class="input-text" id="email_input1" style="width:138px" type="text"/> @ <input
+                                        class="input-text" id="email_input1"
+                                        style="width:138px"
+                                        type="text"/>
                                 <select class="input-sel" style="width:160px">
                                     <option value="">선택입력</option>
                                     <option value="">선택입력</option>
@@ -83,14 +86,17 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>주소</th>
                             <td>
                                 <p>
-                                    <label>우편번호 <input class="input-text ml5" disabled style="width:242px" type="text"/></label><a
+                                    <label>우편번호 <input class="input-text ml5" id="postNum_input" disabled
+                                                       style="width:242px" type="text"/></label><a
                                             class="btn-s-tin ml10" href="#">주소찾기</a>
                                 </p>
                                 <p class="mt10">
-                                    <label>기본주소 <input class="input-text ml5" style="width:719px" type="text"/></label>
+                                    <label>기본주소 <input class="input-text ml5" id="address_input" style="width:719px"
+                                                       type="text"/></label>
                                 </p>
                                 <p class="mt10">
-                                    <label>상세주소 <input class="input-text ml5" style="width:719px" type="text"/></label>
+                                    <label>상세주소 <input class="input-text ml5" id="addressExtra_input" style="width:719px"
+                                                       type="text"/></label>
                                 </p>
                             </td>
                         </tr>
@@ -98,7 +104,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>SMS수신</th>
                             <td>
                                 <div class="box-input">
-                                    <label class="input-sp">
+                                    <label class="input-sp" id="sms">
                                         <input checked="checked" id="" name="radio" type="radio"/>
                                         <span class="input-txt">수신함</span>
                                     </label>
@@ -114,12 +120,12 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>메일수신</th>
                             <td>
                                 <div class="box-input">
-                                    <label class="input-sp">
+                                    <label class="input-sp" id="mail">
                                         <input checked="checked" id="" name="radio2" type="radio"/>
                                         <span class="input-txt">수신함</span>
                                     </label>
                                     <label class="input-sp">
-                                        <input id="" name="radio2" type="radio"/>
+                                        <input id="mail" name="radio2" type="radio"/>
                                         <span class="input-txt">미수신</span>
                                     </label>
                                 </div>
@@ -130,7 +136,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                     </table>
 
                     <div class="box-btn">
-                        <a class="btn-l" href="#">회원가입</a>
+                        <a class="btn-l" id="join_btn" href="#">회원가입</a>
                     </div>
                 </div>
             </div>
