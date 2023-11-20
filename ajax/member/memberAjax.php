@@ -1,5 +1,15 @@
 <?php
+$hostname = "172.16.0.32";
+$username = "dev_jinseok";
+$password = "js9158214ok!";
+$dbname = "practice";
+
+#phpinfo();
+
+$conn = mysqli_connect($hostname, $username, $password, $dbname, 3306);
+
 session_start();
+
 //step_02 전화번호 등록하기
 if ($_POST['mode'] == 'step_02') {
     $_SESSION['phoneNum'] = $_POST['phoneNum'];
@@ -24,17 +34,105 @@ if ($_POST['mode'] == 'step_02') {
 //우편번호 찾기 다음 API활용
 //휴대폰 번호 이미 입력했으니 default값으로 세팅
 
-//회원가입 눌렀을 때, 아래 항목들이 true여야 함
-if($_POST['mode' == 'step_03']) {
-    $userName = $_POST['userName'];
-    $userId = $_POST['userId'];
-    $userPassword = $_POST['userPassword'];
-    $userEmail = $_POST['userEmail'];
-    $userPhoneNum = $_POST['userPhoneNum'];
-    $userPostNum = $_POST['userPostNum'];
-    $userAddress = $_POST['userAddress'];
-    $userExtraAddress = $_POST['userExtraAddress'];
-    $sendSMS = $_POST['userSMS'];
-    $sendEmail = $_POST['userEmail'];
+//회원가입 + 유효성 검사
+$pattern = [
+    'id' => '/^[a-z][a-z0-9]{3,15}$/',
+    'name' => '/^[가-힣]{2, }/',
+    'password' => '/^(?=.*[a-z])(?=.*[0-9][a-z0-9]){8,15}$/',
+    'phoneNum' => '/^010/d{8}$/',
+    'addressNum' => '/\d{5,6}$/'
+];
+
+if ($_POST['mode'] == 'step_03') {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $phoneNum = $_POST['phoneNum'];
+    $normalNum = $_POST['normalNum'];
+    $addressNum = $_POST['addressNUm'];
+    $address = $_POST['address'];
+    $extraAddress = $_POST['extraAddress'];
+    $sendSMS = $_POST['sendSMS'];
+    $sendEmail = $_POST['sendEmail'];
+
+    //유효성검사
+    $isValid = [
+        'id' => preg_match($pattern['id'], $id),
+        'name' => preg_match($pattern['name'], $name),
+        'password' => preg_match($pattern['password'], $password),
+        'phoneNum' => preg_match($pattern['phoneNum'], $phoneNum),
+        'addressNum' => preg_match($pattern['addressNum'], $addressNum)
+    ];
+
+    //비밀번호 암호화
+    if (!in_array(false, $isValid)) {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO member
+        (
+            id,
+            name,
+            password,
+            email,
+            phoneNum,
+            normalNum,
+            addressNum,
+            address,
+            extraAddress,
+            sendSMS,
+            sendEmail
+        )
+        values (
+            '{$id}',
+            '{$name}',
+            '{$hashedPassword}',
+            '{$email}',
+            '{$phoneNum}',
+            '{$normalNum}',
+            '{$addressNum}',
+            '{$address}',
+            '{$extraAddress}',
+            '{$sendSMS}',
+            '{$sendEmail}'
+        )";
+
+        //DB에 정보 입력
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            $_SESSION['id'] = $id;
+            $_SESSION['password'] = $password;
+
+            $responseData = [
+                'result' => true
+            ];
+        }
+
+        header('Content_type: application/json');
+        echo json_encode($responseData);
+    }
 }
-?>
+
+//아이디 중복검사
+if ($_POST['mode'] == 'id_check') {
+    $idCheck = false;
+    $idInput = $_POST['idInput'];
+
+    $sql = "SELECT * FROM member WHERE id = '{$idInput}'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+
+    //중복되는 아이디가 없을 경우
+    if (!$row) {
+        $idCheck = true;
+    }
+
+    //JSON으로 변환
+    $responseData = [
+        'check' => $idCheck
+    ];
+
+    header('Content-Type: application/json');
+    echo json_encode($responseData);
+}

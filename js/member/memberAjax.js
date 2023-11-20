@@ -35,6 +35,7 @@ $('#agree_Check2').change(function () {
     agreeCheck2 = $(this).is(':checked');
 })
 
+//다음단계 이동
 $("#next_step_btn").click(function () {
     if (agreeCheck1 || agreeCheck2) {
         alert("약관에 모두 동의했는지 확인해주세요.");
@@ -114,7 +115,7 @@ $("#check_sessionCode_btn").click(function () {
         $("#text_sessionCode").val("");
         $("#text_sessionCode").focus();
     } else {
-        window.location.replace("/member/index.php?mode=step_03");
+        window.location.replace("/member/step_03.php");
     }
 });
 
@@ -124,33 +125,44 @@ $("#check_sessionCode_btn").click(function () {
 //휴대폰 번호 이미 입력했으니 default값으로 세팅
 //이름, 아이디, 비밀번호, 이메일, 일반 전화, 주소 입력해야 함
 
-let inputChecks =  {
+let inputChecks = {
     nameCheck: false,
     idCheck: false,
     pwCheck: false,
     emailCheck: false,
-    postNumCheck: false
+    addressNumCheck: false
 };
 
-$("#join_btn").click(function() {
-    inputChecks ['nameCheck'] = $("#name_input").val();
-    inputChecks ['emailCheck'] = $("#email_input1").val() != ' ';
-    inputChecks ['postNumCheck'] = $("#postNum_input").val() != ' ';
+//회원가입 기능 구현
+$("#join_btn").click(function () {
 
-    //전부 입력해야 하는 값들
-    if(objects.values(inputChecks).every(check => check)) {
+    //공백 불가능
+    inputChecks['nameCheck'] = $("#name_input").val() != '';
+    inputChecks['idCheck'] = $("#id_input").val() != '';
+    inputChecks['passwordCheck'] = $("#pw_input").val() != '';
+    inputChecks['emailCheck'] = $("#email_input1").val() != '';
+    inputChecks['addressNumCheck'] = $("#addressNum_input").val() != '';
+
+    if (Object.values(inputChecks).every(check => check)) {
         let nameInput = $("#name_input").val();
         let idInput = $("#id_input").val();
-        let pwInput = $("#pw_input").val();
+        let passwordInput = $("#pw_input").val();
         let emailInput = $("#email_input1").val() + "@" + $("#email_input2").val();
-        let phoneNum = '';
-        let normalNum = '';
-        let postNumInput = $("postNum_input").val();
-        let addressInput = $("address_input").val()
-        let addressExtraInput = $("addressExtra_input").val();
+        let phoneInput = '';
+        $(".phone").each(function () {
+            let num = $(this).val();
+            phoneInput += num;
+        });
+        let normalInput = '';
+        $(".normal").each(function () {
+            let num = $(this).val();
+            normalInput += num;
+        });
+        let addressNumInput = $("#addressNum_input").val();
+        let addressInput = $("#address_input").val();
+        let extraAddressInput = $("#addressExtra_input").val();
         let smsSend = $(".sms:checked").val();
-        let mailSend = $(".mail:checked").val();
-
+        let emailSend = $(".email:checked").val();
 
         let data = {
             mode: 'step_03',
@@ -158,21 +170,63 @@ $("#join_btn").click(function() {
             id: idInput,
             password: passwordInput,
             email: emailInput,
-            phonenum: phoneNumInput,
-            normalnum: normalNumInput,
-            postnum: postNumInput,
+            phoneNum: phoneInput,
+            normalNum: normalInput,
+            addressNum: addressNumInput,
             address: addressInput,
-            addressExtra: adressExtraInput,
+            extraAddress: extraAddressInput,
             sendSMS: smsSend,
-            sendEmaul: emailSend
+            sendEmail: emailSend
         }
 
         $.ajax("/ajax/member/memberAjax.php", {
             method: "POST",
             data: data,
-            success: function(data) {
-                if(data.result)
+            success: function (data) {
+                if (data.result) {
+                    window.location.replace("/member/index.php?=mode=complete");
+                } else {
+                    alert("정보를 바르게 입력했는지 확인해주세요.");
+                }
+            }
+        })
+    } else {
+        alert("*이 있는 필수 입력칸을 모두 채워주세요.");
+        console.log(123)
+        event.preventDefault();
+    }
+})
+
+//대문자 방지
+$("#id_input").on("keyup", function () {
+    inputChecks['idCheck'] = false;
+})
+
+//ID중복검사
+$("#id_check_btn").click(function () {
+    let idInput = $("#id_input").val();
+    let data = {
+        mode: 'id_check',
+        idInput: idInput
+    };
+
+    $.ajax("/ajax/member/memberAjax.php", {
+        method: "POST",
+        data: data,
+        success: function (data) {
+
+            if (data.check) {
+                alert("사용 가능한 아이디입니다.");
+                inputChecks['idCheck'] = true;
+                console.log(123);
+            } else {
+                alert("이미 사용중인 아이디입니다.");
+                $("#id_input").val("");
+                $("#id_input").focus();
+                inputChecks['idCheck'] = false;
             }
         }
-});
-}
+    })
+})
+
+//비밀번호 확인

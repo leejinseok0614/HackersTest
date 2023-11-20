@@ -1,6 +1,25 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
-?>
+
+//
+//$hostname = "localhost";
+//#$hostname = "192.168.1.0";
+//$username = "root";
+//$password = "root";
+//$dbname = "test";
+//#$dbname = "";
+//$port = "3306";
+//
+//$conn = mysqli_connect($hostname, $username, $password);
+//#or die("html>script language='JavaScript'>alert('Unable to connect to Database! Please try again later!.')/history.go(-1_/script>html>");
+//
+//if ($conn->connect_error) {
+//    echo "error";
+//} else {
+//    echo "야호";
+//}
+//
+//?>
 
     <div class="container-full" id="container">
         <div class="content" id="content">
@@ -38,7 +57,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>아이디</th>
                             <td><input class="input-text" id="id_input" placeholder="영문자로 시작하는 4~15자의 영문소문자, 숫자"
                                        style="width:302px"
-                                       type="text"/><a class="btn-s-tin ml10"
+                                       type="text"/><a class="btn-s-tin ml10" id="id_check_btn"
                                                        href="#">중복확인</a></td>
                         </tr>
                         <tr>
@@ -55,7 +74,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>이메일주소</th>
                             <td>
                                 <input class="input-text" id="email_input1" style="width:138px" type="text"/> @ <input
-                                        class="input-text" id="email_input1"
+                                        class="input-text" id="email_input2"
                                         style="width:138px"
                                         type="text"/>
                                 <select class="input-sel" style="width:160px">
@@ -70,23 +89,24 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <tr>
                             <th scope="col"><span class="icons">*</span>휴대폰 번호</th>
                             <td>
-                                <input class="input-text" style="width:50px" type="text"/> -
-                                <input class="input-text" style="width:50px" type="text"/> -
-                                <input class="input-text" style="width:50px" type="text"/>
+                                <input class="input-text phone_num" id style="width:50px" type="text"/> -
+                                <input class="input-text phone_num" style="width:50px" type="text"/> -
+                                <input class="input-text phone_num" style="width:50px" type="text"/>
                             </td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons"></span>일반전화 번호</th>
-                            <td><input class="input-text" style="width:88px" type="text"/> - <input class="input-text"
-                                                                                                    style="width:88px"
-                                                                                                    type="text"/>
-                                - <input class="input-text" style="width:88px" type="text"/></td>
+                            <td><input class="input-text normalNum" style="width:88px" type="text"/> - <input
+                                        class="input-text normalNum"
+                                        style="width:88px"
+                                        type="text"/>
+                                - <input class="input-text normalNum" style="width:88px" type="text"/></td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>주소</th>
                             <td>
                                 <p>
-                                    <label>우편번호 <input class="input-text ml5" id="postNum_input" disabled
+                                    <label>우편번호 <input class="input-text ml5" id="addressNum_input"
                                                        style="width:242px" type="text"/></label><a
                                             class="btn-s-tin ml10" href="#">주소찾기</a>
                                 </p>
@@ -95,7 +115,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                                                        type="text"/></label>
                                 </p>
                                 <p class="mt10">
-                                    <label>상세주소 <input class="input-text ml5" id="addressExtra_input" style="width:719px"
+                                    <label>상세주소 <input class="input-text ml5" id="addressExtra_input"
+                                                       style="width:719px"
                                                        type="text"/></label>
                                 </p>
                             </td>
@@ -136,13 +157,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                     </table>
 
                     <div class="box-btn">
-                        <a class="btn-l" id="join_btn" href="#">회원가입</a>
+                        <a class="btn-l" id="join_btn" href="#"> 회원가입</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="/js/member/memberAjax.js"></script>
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";
-?>
