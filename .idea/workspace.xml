@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9990732e-e687-4392-8205-05fa13be7f01" name="변경" comment="" />
+    <list default="true" id="9990732e-e687-4392-8205-05fa13be7f01" name="변경" comment="Step_02 로그인 구현 완료 / Step_03 시작">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +24,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="2YFUMeCdgqmYC9w0twHkolIaHqA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,6 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/web/frontend/1700441122435_jquery-3.7.1.min.js",
     "node.js.detected.package.eslint": "true",
@@ -107,10 +113,23 @@
       <workItem from="1700455346041" duration="730000" />
       <workItem from="1700456095072" duration="672000" />
     </task>
+    <task id="LOCAL-00001" summary="Step_02 로그인 구현 완료 / Step_03 시작">
+      <option name="closed" value="true" />
+      <created>1700470933412</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700470933412</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Step_02 로그인 구현 완료 / Step_03 시작" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step_02 로그인 구현 완료 / Step_03 시작" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
