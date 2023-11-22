@@ -34,7 +34,7 @@ $('#agree_CheckAll').change(function () {
 
     let notChecked = agreeCheckedCount == countAll;
 
-    if(notChecked) {
+    if (notChecked) {
         alert("약관에 모두 동의하셨는지 확인해주세요.");
         $(".agree_check").prop("checked", false);
         $("#agree_CheckAll").prop("checked", false);
@@ -86,7 +86,7 @@ $("#send_session_code_btn").click(function () {
 
         if (!check) { //전화번호 형식에 맞는지 확인
             alert("전화번호 형식에 맞지 않습니다.")
-            console.log(123);
+            console.log(error);
         } else { //맞다면 mode 'step_02'로 이동
             let data = {
                 mode: 'step_02',
@@ -101,6 +101,7 @@ $("#send_session_code_btn").click(function () {
                 //JSON으로 묶어서 보낸 파일을 decode해줘야 함!
                 //decode를 하지 않아서 undefined가 지속적으로 출력됨!
                 success: function (data) {
+                    console.log(data);
                     let test = JSON.parse(data);
                     // console.log('test=>', test);
                     // console.log('data=>', data);
@@ -248,7 +249,8 @@ $("#join_btn").click(function () {
             success: function (data) {
                 console.log(data.result)
                 if (data.result) {
-                    window.location.replace("/member/index.php?=mode=complete");
+                    alert("회원가입이 완료되었습니다. 로그인 후, 사용이 가능합니다.")
+                    window.location.replace("http://test.hackers.com/member/step_complete.php");
                 } else {
                     console.log(data)
                     alert("정보를 바르게 입력했는지 확인해주세요.");
@@ -290,16 +292,16 @@ $("#id_check_btn").click(function () {
 })
 
 //비밀번호랑 비밀번호 확인 탭이 같은지 확인
-$("#pw_input_check").blur(function() {
+$("#pw_input_check").blur(function () {
     let pwInput = $("#pw_input").val();
     let pwInputCheck = $("#pw_input_check").val();
 
     //같은지 확인
     let check = pwInput == pwInputCheck;
 
-    if(pwInputCheck) {
+    if (pwInputCheck) {
         //같을 경우
-        if(check) {
+        if (check) {
             alert("비밀번호 확인이 완료되었습니다.");
             inputChecks['pwCheck'] = true;
         } else {

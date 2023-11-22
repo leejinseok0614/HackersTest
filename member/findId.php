@@ -1,6 +1,7 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
 ?>
+
 <div class="container-full" id="container">
     <div class="content" id="content">
         <div class="inner">

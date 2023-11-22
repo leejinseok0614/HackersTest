@@ -1,5 +1,5 @@
 <?php
-session_start();
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 //parameter값 GET
 $mode = $_GET['mode'];
 

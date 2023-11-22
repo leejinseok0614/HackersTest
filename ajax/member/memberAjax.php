@@ -1,14 +1,13 @@
 <?php
-session_start();
-
-$hostname = "172.16.0.32";
-$username = "dev_jinseok";
-$password = "js9158214ok!";
-$dbname = "practice";
-
-#phpinfo();
-
-$conn = mysqli_connect($hostname, $username, $password, $dbname, 3306);
+include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
+//$hostname = "172.16.0.32";
+//$username = "dev_jinseok";
+//$password = "js9158214ok!";
+//$dbname = "practice";
+//
+//#phpinfo();
+//
+//$conn = mysqli_connect($hostname, $username, $password, $dbname, 3306);
 
 //step_02 전화번호 등록하기
 if ($_POST['mode'] == 'step_02') {
