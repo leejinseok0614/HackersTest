@@ -77,30 +77,30 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                                         class="input-text" id="email_input2"
                                         style="width:138px"
                                         type="text"/>
-                                <select class="input-sel" style="width:160px">
+                                <select class="input-sel select_email" style="width:160px">
                                     <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
+                                    <option value="gmail.com">Gmail</option>
+                                    <option value="naver.com">Naver</option>
+                                    <option value="kakao.com">Kakao</option>
+                                    <option value="github.com">Github</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>휴대폰 번호</th>
                             <td>
-                                <input class="input-text phone_num" id style="width:50px" type="text"/> -
-                                <input class="input-text phone_num" style="width:50px" type="text"/> -
-                                <input class="input-text phone_num" style="width:50px" type="text"/>
+                                <input class="input-text phone" id style="width:50px" type="text"/> -
+                                <input class="input-text phone" style="width:50px" type="text"/> -
+                                <input class="input-text phone" style="width:50px" type="text"/>
                             </td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons"></span>일반전화 번호</th>
-                            <td><input class="input-text normalNum" style="width:88px" type="text"/> - <input
-                                        class="input-text normalNum"
+                            <td><input class="input-text normal" style="width:88px" type="text"/> - <input
+                                        class="input-text normal"
                                         style="width:88px"
                                         type="text"/>
-                                - <input class="input-text normalNum" style="width:88px" type="text"/></td>
+                                - <input class="input-text normal" style="width:88px" type="text"/></td>
                         </tr>
                         <tr>
                             <th scope="col"><span class="icons">*</span>주소</th>
@@ -108,11 +108,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                                 <p>
                                     <label>우편번호 <input class="input-text ml5" id="addressNum_input"
                                                        style="width:242px" type="text"/></label><a
-                                            class="btn-s-tin ml10" href="#">주소찾기</a>
+                                            class="btn-s-tin ml10" id="address_btn" href="#">주소찾기</a>
                                 </p>
                                 <p class="mt10">
                                     <label>기본주소 <input class="input-text ml5" id="address_input" style="width:719px"
-                                                       type="text"/></label>
+                                                       type="text"/ ></label>
                                 </p>
                                 <p class="mt10">
                                     <label>상세주소 <input class="input-text ml5" id="addressExtra_input"
@@ -125,12 +125,12 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>SMS수신</th>
                             <td>
                                 <div class="box-input">
-                                    <label class="input-sp" id="sms">
-                                        <input checked="checked" id="" name="radio" type="radio"/>
+                                    <label class="input-sp">
+                                        <input class="sms" checked="checked" name="sendSMS" type="radio" value=1>
                                         <span class="input-txt">수신함</span>
                                     </label>
                                     <label class="input-sp">
-                                        <input id="" name="radio" type="radio"/>
+                                        <input class="sms" name="sendSMS" type="radio" value=0>
                                         <span class="input-txt">미수신</span>
                                     </label>
                                 </div>
@@ -141,12 +141,12 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>메일수신</th>
                             <td>
                                 <div class="box-input">
-                                    <label class="input-sp" id="mail">
-                                        <input checked="checked" id="" name="radio2" type="radio"/>
+                                    <label class="input-sp">
+                                        <input class="email" checked="checked" name="sendEmail" type="radio" value=1>
                                         <span class="input-txt">수신함</span>
                                     </label>
                                     <label class="input-sp">
-                                        <input id="mail" name="radio2" type="radio"/>
+                                        <input class="email" name="sendEmail" type="radio" value=0>
                                         <span class="input-txt">미수신</span>
                                     </label>
                                 </div>
@@ -165,5 +165,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
     </div>
 
     <script src="/js/member/memberAjax.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";

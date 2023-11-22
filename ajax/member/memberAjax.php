@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $hostname = "172.16.0.32";
 $username = "dev_jinseok";
 $password = "js9158214ok!";
@@ -7,8 +9,6 @@ $dbname = "practice";
 #phpinfo();
 
 $conn = mysqli_connect($hostname, $username, $password, $dbname, 3306);
-
-session_start();
 
 //step_02 전화번호 등록하기
 if ($_POST['mode'] == 'step_02') {
@@ -50,7 +50,7 @@ if ($_POST['mode'] == 'step_03') {
     $email = $_POST['email'];
     $phoneNum = $_POST['phoneNum'];
     $normalNum = $_POST['normalNum'];
-    $addressNum = $_POST['addressNUm'];
+    $addressNum = $_POST['addressNum'];
     $address = $_POST['address'];
     $extraAddress = $_POST['extraAddress'];
     $sendSMS = $_POST['sendSMS'];
@@ -64,9 +64,10 @@ if ($_POST['mode'] == 'step_03') {
         'phoneNum' => preg_match($pattern['phoneNum'], $phoneNum),
         'addressNum' => preg_match($pattern['addressNum'], $addressNum)
     ];
-
+//
+//    print_r($isValid);
     //비밀번호 암호화
-    if (!in_array(false, $isValid)) {
+    if (!in_array(false)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO member
@@ -97,7 +98,6 @@ if ($_POST['mode'] == 'step_03') {
             '{$sendEmail}'
         )";
 
-        //DB에 정보 입력
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
@@ -105,7 +105,7 @@ if ($_POST['mode'] == 'step_03') {
             $_SESSION['password'] = $password;
 
             $responseData = [
-                'result' => true
+                "result" => true
             ];
         }
 

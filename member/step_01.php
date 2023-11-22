@@ -346,7 +346,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <button class="js_agree_open" type="button"><em>펼치기 ▼</em></button>
                         <div class="mt10">
                             <label class="input-sp">
-                                <input type="checkbox" id="agree_Check1"/>
+                                <input type="checkbox" class="agree_check" id="agree_Check1"/>
                                 <span class="input-txt">약관에 동의합니다.</span>
                             </label>
                         </div>
@@ -530,7 +530,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <button class="js_agree_open" type="button"><em>펼치기 ▼</em></button>
                         <div class="mt10">
                             <label class="input-sp">
-                                <input type="checkbox" id="agree_Check2"/>
+                                <input type="checkbox" class="agree_check" id="agree_Check2"/>
                                 <span class="input-txt">약관에 동의합니다.</span>
                             </label>
                         </div>
@@ -539,7 +539,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
 
                 <div class="all-agree-box">
                     <label class="input-sp">
-                        <input type="checkbox" id="agree_CheckAll"/>
+                        <input type="checkbox" id="agree_All"/>
                         <span class="input-txt">상위 이용약관 및 개인정보 취급방침에 모두 동의합니다.</span>
                     </label>
                 </div>
