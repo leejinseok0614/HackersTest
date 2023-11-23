@@ -1,5 +1,6 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
+//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 
 //
 //$hostname = "localhost";
@@ -79,10 +80,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                                         type="text"/>
                                 <select class="input-sel select_email" style="width:160px">
                                     <option value="">선택입력</option>
-                                    <option value="gmail.com">Gmail</option>
-                                    <option value="naver.com">Naver</option>
-                                    <option value="kakao.com">Kakao</option>
-                                    <option value="github.com">Github</option>
+                                    <option value="gmail.com">구글</option>
+                                    <option value="naver.com">네이버</option>
+                                    <option value="kakao.com">카카오</option>
+                                    <option value="github.com">Git</option>
                                 </select>
                             </td>
                         </tr>

@@ -45,7 +45,6 @@
 <!-- //skip nav -->
 
 <div id="wrap">
-
     <div id="header" class="header">
 
         <div class="nav-section">
@@ -153,14 +152,24 @@
         <div class="top-section">
             <div class="inner">
                 <div class="link-box">
-                    <!-- 로그인전 -->
-                    <a href="/login/login.php">로그인</a>
-                    <a href="/member/step_01.php">회원가입</a>
-                    <a href="#">상담/고객센터</a>
-                    <!-- 로그인후 -->
-                    <!-- <a href="#">로그아웃</a>
-                    <a href="#">내정보</a>
-                    <a href="#">상담/고객센터</a> -->
+                    <?php
+                    $member = false;
+                    if (isset($_SESSION['id']) && isset($_SESSION['password'])) {
+                        $member = $_SESSION['id'];
+                        echo $_SESSION['id'];
+                        echo $_SESSION['password'];
+                        echo $member;
+                        //로그인후
+                        echo "<a href='/login/index.php?mode=logout'>로그아웃</a>";
+                        echo "<a href='#'>내정보</a>";
+                        echo "<a href='#'>상담/고객센터</a>";
+                    } else {
+                        //로그인전
+                        echo "<a href='/login/index.php?mode=login'>로그인</a>";
+                        echo "<a href='/member/index.php?mode=step_01'>회원가입</a>";
+                        echo "<a href='#'>상담/고객센터</a>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>

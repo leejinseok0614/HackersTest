@@ -6,7 +6,7 @@
 
 //inclue로 절대 경로 이용
 //header
-include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
 ?>
 
@@ -392,7 +392,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
         <div class="quick-bar">
             <div class="inner p-r">
                 <ul class="list-link">
-                    <li><a class="txt" href="#">로그인</a></li>
+                    <li><a class="txt" href='/login/index.php?mode=login'>로그인</a></li>
                     <li><a class="txt" href="#">상담신청</a></li>
                     <li><a class="txt" href="#">장바구니</a></li>
                 </ul>

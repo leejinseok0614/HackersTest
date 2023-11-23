@@ -5,10 +5,9 @@ $mode = $_GET['mode'];
 
 //모드별로 수행
 $modeActions = [
-    'step_01' => "/member/step_01.php",
-    'step_02' => "/member/step_02.php",
-    'step_03' => "/member/step_03.php",
-    'step_04' => "/member/step_complete.php",
+    'find_id' => "/find/findId.php",
+    "find_pw" => "/find/findPw.php",
+    "find_id_send_code" => "/find/findId.php"
 ];
 
 //filname변수로 mode값에 해당하는 filename 넣기

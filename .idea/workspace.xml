@@ -53,17 +53,14 @@
       <recent name="D:\web\frontend\member" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\web\frontend\find" />
       <recent name="D:\web\frontend\js" />
       <recent name="D:\web\frontend\js\member" />
       <recent name="D:\web\frontend\member" />
       <recent name="D:\web\frontend\layout" />
-      <recent name="D:\web\frontend\find" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP 스크립트.test.php">
-    <configuration name="findIdFinish.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/home/member/findIdFinish.php" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JavaScript 디버그.step_02.php">
     <configuration name="index.php (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/frontend/index.php" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -73,16 +70,19 @@
     <configuration name="login.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/frontend/login/login.php" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="step_02.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/frontend/member/step_02.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/member/test.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript 디버그.step_02.php" />
         <item itemvalue="PHP 스크립트.test.php" />
         <item itemvalue="JavaScript 디버그.login.php" />
         <item itemvalue="JavaScript 디버그.index.php (1)" />
         <item itemvalue="JavaScript 디버그.index.php" />
-        <item itemvalue="JavaScript 디버그.findIdFinish.php" />
       </list>
     </recent_temporary>
   </component>
@@ -123,6 +123,9 @@
       <workItem from="1700616334597" duration="1333000" />
       <workItem from="1700618132467" duration="8082000" />
       <workItem from="1700629377385" duration="14438000" />
+      <workItem from="1700696277592" duration="11651000" />
+      <workItem from="1700708261907" duration="7324000" />
+      <workItem from="1700719643934" duration="9912000" />
     </task>
     <servers />
   </component>

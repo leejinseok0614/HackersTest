@@ -1,16 +1,22 @@
 <?php
 //include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
+//echo "!!"; exit();
 //parameter값 GET
 $mode = $_GET['mode'];
-
+//print_r($_SERVER); exit();
 //모드별로 수행
 $modeActions = [
-    'step_01' => "/member/step_01.php",
-    'step_02' => "/member/step_02.php",
-    'step_03' => "/member/step_03.php",
-    'step_04' => "/member/step_complete.php",
+    'login' => "/login/login.php",
+    'logout' => "/login/index.php"
 ];
 
 //filname변수로 mode값에 해당하는 filename 넣기
 $filename = include_once $_SERVER['DOCUMENT_ROOT'] . $modeActions[$mode];
+
+if ($mode == 'logout') {
+    session_destroy();
+    header("Location: http://test.hackers.com/");
+}
+
 ?>

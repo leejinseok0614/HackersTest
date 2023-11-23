@@ -1,5 +1,6 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
+
 //$hostname = "172.16.0.32";
 //$username = "dev_jinseok";
 //$password = "js9158214ok!";
@@ -67,7 +68,8 @@ if ($_POST['mode'] == 'step_03') {
 //    print_r($isValid);
     //비밀번호 암호화
     if (!in_array(false)) {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+//        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = hash('sha256', $password);
 
         $sql = "INSERT INTO member
         (
@@ -135,3 +137,6 @@ if ($_POST['mode'] == 'id_check') {
     header('Content-Type: application/json');
     echo json_encode($responseData);
 }
+
+//아이디찾기
+
