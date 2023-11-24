@@ -1,6 +1,5 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
-//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 
 //
 //$hostname = "localhost";
@@ -90,9 +89,15 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <tr>
                             <th scope="col"><span class="icons">*</span>휴대폰 번호</th>
                             <td>
-                                <input class="input-text phone" id style="width:50px" type="text"/> -
-                                <input class="input-text phone" style="width:50px" type="text"/> -
-                                <input class="input-text phone" style="width:50px" type="text"/>
+                                <input class="input-text phone" value="<?php
+                                echo substr($_SESSION['phoneNum'], 0, 3)
+                                ?>" style="width:50px" type="text"/> -
+                                <input class="input-text phone" value="<?php
+                                echo substr($_SESSION['phoneNum'], 3, 4)
+                                ?>" style="width:50px" type="text"/> -
+                                <input class="input-text phone" value="<?php
+                                echo substr($_SESSION['phoneNum'], 7, 4)
+                                ?>" style="width:50px" type="text"/>
                             </td>
                         </tr>
                         <tr>
@@ -166,6 +171,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
     </div>
 
     <script src="/js/member/memberAjax.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!--    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>-->
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";

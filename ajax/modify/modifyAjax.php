@@ -28,7 +28,6 @@ if ($_POST['mode'] == 'modify_id_check') {
     echo json_encode($responseData);
 }
 
-
 $pattern = [
     'id' => '/^[a-z][a-z0-9]{3,15}$/',
     'password' => '/^(?=.*[a-z])(?=.*[0-9][a-z0-9]){8,15}$/',
@@ -95,4 +94,6 @@ if ($_POST['mode'] = 'modify') {
         echo json_encode($responseData);
     }
 }
+
+
 ?>

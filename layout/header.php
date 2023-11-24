@@ -159,11 +159,11 @@
 //                        echo $_SESSION['id'];
 //                        echo $_SESSION['password'];
                         echo $member;
-                        echo "님";
+                        echo " 님";
 
                         //로그인후
                         echo "<a href='/login/index.php?mode=logout'>로그아웃</a>";
-                        echo "<a href='/modify/index.php?mode=modify'>내정보</a>";
+                        echo "<a href='/modify/index.php?mode=modify'>내 정보</a>";
                         echo "<a href='#'>상담/고객센터</a>";
 //                        <a href="#">로그인</a>
 //					    <a href="#">회원가입</a>

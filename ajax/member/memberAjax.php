@@ -1,6 +1,6 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
-
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 //$hostname = "172.16.0.32";
 //$username = "dev_jinseok";
 //$password = "js9158214ok!";
@@ -14,7 +14,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
 if ($_POST['mode'] == 'step_02') {
     $_SESSION['phoneNum'] = $_POST['phoneNum'];
     $_SESSION['sessionVeriCode'] = 123456;
-
 
     //JSON으로 전환
 //    print_r($_SESSION['sessionVeriCode']);

@@ -54,7 +54,7 @@ $('#agree_Check2').change(function () {
 $("#next_step_btn").click(function () {
     if (agreeCheck1 || agreeCheck2) {
         alert("약관에 모두 동의했는지 확인해주세요.");
-        event.preventDefault();
+        window.location.replace("/member/index.php?mode=step_02");
     }
 })
 
@@ -131,7 +131,7 @@ $("#check_sessionCode_btn").click(function () {
     if (checkSessionVeriCode) {
         // alert("success");
 
-        window.location.replace("/member/step_03.php");
+        window.location.replace("/member/index.php?mode=step_03");
     } else {
         alert("인증번호가 틀렸습니다.");
         $("#text_sessionCode").val("");
