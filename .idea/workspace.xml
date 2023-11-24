@@ -45,6 +45,9 @@
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mariadb&quot;,
       &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일&quot;: [
+      &quot;PHP&quot;
     ]
   }
 }</component>
@@ -53,11 +56,11 @@
       <recent name="D:\web\frontend\member" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\web\frontend\modify" />
+      <recent name="D:\web\frontend\member" />
       <recent name="D:\web\frontend\find" />
       <recent name="D:\web\frontend\js" />
       <recent name="D:\web\frontend\js\member" />
-      <recent name="D:\web\frontend\member" />
-      <recent name="D:\web\frontend\layout" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript 디버그.step_02.php">
@@ -125,7 +128,14 @@
       <workItem from="1700629377385" duration="14438000" />
       <workItem from="1700696277592" duration="11651000" />
       <workItem from="1700708261907" duration="7324000" />
-      <workItem from="1700719643934" duration="9912000" />
+      <workItem from="1700719643934" duration="10246000" />
+      <workItem from="1700783491079" duration="7986000" />
+      <workItem from="1700791705350" duration="1073000" />
+      <workItem from="1700792819932" duration="7672000" />
+      <workItem from="1700803936282" duration="627000" />
+      <workItem from="1700804580311" duration="864000" />
+      <workItem from="1700805465629" duration="422000" />
+      <workItem from="1700805903077" duration="3676000" />
     </task>
     <servers />
   </component>

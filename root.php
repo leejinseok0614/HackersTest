@@ -8,7 +8,13 @@ $dbname = "practice";
 
 #phpinfo();
 
-$conn = mysqli_connect($hostname, $username, $password, $dbname, 3306);
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
+
+//if($conn) {
+//    echo "야호";
+//} else {
+//    echo "?";
+//}
 #or die("html>script language='JavaScript'>alert('Unable to connect to Database! Please try again later!.')/history.go(-1_/script>html>");
 
 //if ($conn->connect_error) {

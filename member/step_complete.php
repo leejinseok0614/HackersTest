@@ -21,7 +21,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                 </div>
 
                 <div class="box-btn mt30">
-                    <a class="btn-l" href="/login/login.php">로그인</a>
+                    <a class="btn-l" href="/login/index.php?mode=login">로그인</a>
                     <a class="btn-l-line ml5" href="#">수강신청</a>
                 </div>
 

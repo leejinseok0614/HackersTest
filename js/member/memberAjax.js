@@ -163,6 +163,7 @@ $("#join_btn").click(function () {
         emailCheck: false,
         addressNumCheck: false
     };
+
     inputChecks['nameCheck'] = $("#name_input").val() != '';
     inputChecks['idCheck'] = $("#id_input").val() != '';
     inputChecks['passwordCheck'] = $("#pw_input").val() != '';
@@ -252,10 +253,10 @@ $("#join_btn").click(function () {
                 console.log(data.result)
                 if (data.result) {
                     console.log("회원가입 버튼 클릭")
-                    console.log(JSON.stringify(data));
+                    // console.log(JSON.stringify(data));
                     console.log(data)
                     alert("회원가입이 완료되었습니다. 로그인 후, 사용이 가능합니다.")
-                    // window.location.replace("http://test.hackers.com/member/step_complete.php");
+                    window.location.replace("http://test.hackers.com/member/step_complete.php");
                 } else {
                     console.log(data)
                     alert("정보를 바르게 입력했는지 확인해주세요.");
@@ -363,3 +364,4 @@ $(".select_email").on("change", function () {
 // })
 
 //<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+

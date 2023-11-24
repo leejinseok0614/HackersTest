@@ -14,8 +14,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                 </div>
 
                 <ul class="tab-list">
-                    <li><a href="http://test.hackers.com/find/findId.php">아이디 찾기</a></li>
-                    <li class="on"><a href="http://test.hackers.com/find/findPW.php">비밀번호 찾기</a></li>
+                    <li><a href="/find/index.php?mode=find_id">아이디 찾기</a></li>
+                    <li class="on"><a href="/find/index.php?mode=find_pw">비밀번호 찾기</a></li>
                 </ul>
 
                 <div class="tit-box-h4">
@@ -27,7 +27,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                     <dd>
                         고객님이 회원 가입 시 등록한 휴대폰 번호와 입력하신 휴대폰 번호가 동일해야 합니다.
                         <label class="input-sp big">
-                            <input checked="checked" name="radio" type="radio"/>
+                            <input name="radio" type="radio"/>
                             <span class="input-txt"></span>
                         </label>
                     </dd>
@@ -38,7 +38,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                     <dd>
                         고객님이 회원 가입 시 등록한 이메일 주소와 입력하신 이메일 주소가 동일해야 합니다.
                         <label class="input-sp big">
-                            <input name="radio" type="radio"/>
+                            <input checked="checked" name="radio" type="radio"/>
                             <span class="input-txt"></span>
                         </label>
                     </dd>
@@ -52,36 +52,38 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <col style="*"/>
                         </colgroup>
 
-                        <tbody>
-                        <tr>
-                            <th scope="col">성명</th>
-                            <td><input class="input-text" style="width:302px" type="text"/></td>
-                        </tr>
                         <tr>
                             <th scope="col">아이디</th>
+                            <td><input class="input-text" id="id_input" style="width:302px" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <th scope="col">생년월일</th>
                             <td>
                                 <select class="input-sel" style="width:148px">
                                     <option value="">선택</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
+                                    <?php
+                                    for ($i = 1990; $i < 2024; $i++) {
+                                        echo "<option value='$i'>$i</option>";
+                                    }
+                                    ?>
                                 </select>
                                 년
-                                <select class="input-sel" style="width:147px">
+                                <select class="input-sel" id="month_input" style="width:147px">
                                     <option value="">선택</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
+                                    <?php
+                                    for ($i = 1; $i < 13; $i++) {
+                                        echo "<option value='$i'>$i</option>";
+                                    }
+                                    ?>
                                 </select>
                                 월
                                 <select class="input-sel" style="width:147px">
                                     <option value="">선택</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
+                                    <?php
+                                    for ($i = 1; $i < 32; $i++) {
+                                        echo "<option value='$i'>$i</option>";
+                                    }
+                                    ?>
                                 </select>
                                 일
                             </td>
@@ -89,23 +91,25 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <tr>
                             <th scope="col">이메일주소</th>
                             <td>
-                                <input class="input-text" style="width:138px" type="text"/> @ <input class="input-text"
-                                                                                                     style="width:138px"
-                                                                                                     type="text"/>
-                                <select class="input-sel" style="width:160px">
+                                <input class="input-text" id="email_pw_input" style="width:138px" type="text"/> @
+                                <input class="input-text" id="email_pw_address_input"
+                                       style="width:138px"
+                                       type="text"/>
+                                <select class="input-select_email" style="width:160px">
                                     <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
-                                    <option value="">선택입력</option>
+                                    <option value="gmail.com">구글</option>
+                                    <option value="naver.com">네이버</option>
+                                    <option value="kakao.com">카카오</option>
+                                    <option value="github.com">Git</option>
                                 </select>
-                                <a class="btn-s-tin ml10" href="#">인증번호 받기</a>
+                                <a class="btn-s-tin ml10" id="send_code_pw_btn" href="#">인증번호 받기</a>
                             </td>
                         </tr>
                         <tr>
                             <th scope="col">인증번호</th>
-                            <td><input class="input-text" style="width:478px" type="text"/><a class="btn-s-tin ml10"
-                                                                                              href="#">인증번호
+                            <td><input class="input-text" id="email_code_check_pw_input" style="width:478px"
+                                       type="text"/><a class="btn-s-tin ml10" id="email_code_check_pw_btn"
+                                                       href="#">인증번호
                                     확인</a></td>
                         </tr>
                         </tbody>
@@ -116,6 +120,6 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
         </div>
     </div>
 
+    <script src="/js/find/findAjax.js"></script>
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";
-?>

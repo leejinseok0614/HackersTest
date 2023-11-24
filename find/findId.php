@@ -16,7 +16,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
 
                 <ul class="tab-list">
                     <li class="on"><a href="/find/index.php?mode=find_id">아이디 찾기</a></li>
-                    <li><a href="/find/findId.php">비밀번호 찾기</a></li>
+                    <li><a href="/find/index.php?mode=find_pw">비밀번호 찾기</a></li>
                 </ul>
 
                 <div class="tit-box-h4">
@@ -123,7 +123,5 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
     </div>
 
     <script src="/js/find/findAjax.js"></script>
-
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "/l ayout/footer.php";
-
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";

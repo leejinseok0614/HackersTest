@@ -14,8 +14,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                 </div>
 
                 <ul class="tab-list">
-                    <li><a href="http://test.hackers.com/find/findId.php>아이디 찾기</a></li>
-                    <li class=" on"><a href="http://test.hackers.com/find/findPW.php">비밀번호 찾기</a></li>
+                    <li><a href="/find/index.php?mode=find_id">아이디 찾기</a></li>
+                    <li class="on"><a href="/find/index.php?mode=find_pw">비밀번호 찾기</a></li>
                 </ul>
 
                 <div class="tit-box-h4">
@@ -33,22 +33,26 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <tbody>
                         <tr>
                             <th scope="col">신규 비밀번호 입력</th>
-                            <td><input class="input-text" placeholder="영문자로 시작하는 4~15자의 영문소문자,숫자" style="width:302px"
+                            <td><input id="input_password" class="input-text" placeholder="영문자로 시작하는 4~15자의 영문소문자,숫자"
+                                       style="width:302px"
                                        type="text"/></td>
                         </tr>
                         <tr>
                             <th scope="col">신규 비밀번호 재확인</th>
-                            <td><input class="input-text" style="width:302px" type="text"/></td>
+                            <td><input id="input_password_check" class="input-text" style="width:302px" type="text"/>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="box-btn">
-                        <a class="btn-l" href="#">확인</a>
+                        <a class="btn-l" id="reset_pw_btn" href="#">확인</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="/js/find/findAjax.js"></script>
 
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/footer.php";

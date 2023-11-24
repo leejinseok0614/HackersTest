@@ -6,15 +6,19 @@
 // - /member/login.html
 $('#login button[type=submit]').click(function () {
 
+    // console.log("버튼 클릭");
     let userId = $('#id_input').val();
     let userPwd = $('#password_input').val();
+
+    // console.log(userId);
+    // console.log(userPwd);
 
     let data = {
         mode: 'login',
         id: userId,
         password: userPwd
     }
-    // console.log(data);
+    console.log(data);
 
     $.ajax("/ajax/login/loginAjax.php", {
         method: "POST",
@@ -24,8 +28,9 @@ $('#login button[type=submit]').click(function () {
             console.log(data);
             if (data.result) {
                 alert("로그인에 성공하였습니다.");
-                window.location.replace("http://test.hackers.com/");
+                window.location.replace("http://test.hackers.com/index.php");
             } else {
+                // console.log(data);
                 alert("아이디나 비밀번호를 확인해주세요.");
             }
         }

@@ -1,5 +1,6 @@
 <?php
-//session_start();
+session_start();
+
 #include "member/header.php";
 #echo, print_r(), var_dump()$_SERVER['DOCUMENT_ROOT']."/header.php";
 #print_r($_SERVER);
@@ -8,6 +9,8 @@
 //header
 //include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
+//print_r("ererer");
+//print_r($_SESSION); exit();
 ?>
 
 <div id="container">

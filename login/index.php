@@ -1,5 +1,5 @@
 <?php
-//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
 //echo "!!"; exit();
 //parameter값 GET

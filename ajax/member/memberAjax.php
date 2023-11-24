@@ -34,6 +34,29 @@ if ($_POST['mode'] == 'step_02') {
 //우편번호 찾기 다음 API활용
 //휴대폰 번호 이미 입력했으니 default값으로 세팅
 
+//아이디 중복검사
+if ($_POST['mode'] == 'id_check') {
+    $idCheck = false;
+    $idInput = $_POST['idInput'];
+
+    $sql = "SELECT * FROM practice WHERE id = '{$idInput}'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+
+    //중복되는 아이디가 없을 경우
+    if (!$row) {
+        $idCheck = true;
+    }
+
+    //JSON으로 변환
+    $responseData = [
+        'check' => $idCheck
+    ];
+
+    header('Content-Type: application/json');
+    echo json_encode($responseData);
+}
+
 //회원가입 + 유효성 검사
 $pattern = [
     'id' => '/^[a-z][a-z0-9]{3,15}$/',
@@ -71,7 +94,7 @@ if ($_POST['mode'] == 'step_03') {
 //        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $hashedPassword = hash('sha256', $password);
 
-        $sql = "INSERT INTO member
+        $sql = "INSERT INTO practice
         (
             id,
             name,
@@ -114,29 +137,3 @@ if ($_POST['mode'] == 'step_03') {
         echo json_encode($responseData);
     }
 }
-
-//아이디 중복검사
-if ($_POST['mode'] == 'id_check') {
-    $idCheck = false;
-    $idInput = $_POST['idInput'];
-
-    $sql = "SELECT * FROM member WHERE id = '{$idInput}'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-
-    //중복되는 아이디가 없을 경우
-    if (!$row) {
-        $idCheck = true;
-    }
-
-    //JSON으로 변환
-    $responseData = [
-        'check' => $idCheck
-    ];
-
-    header('Content-Type: application/json');
-    echo json_encode($responseData);
-}
-
-//아이디찾기
-
