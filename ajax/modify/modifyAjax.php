@@ -28,6 +28,7 @@ if ($_POST['mode'] == 'modify_id_check') {
     echo json_encode($responseData);
 }
 
+//유효성 검사
 $pattern = [
     'id' => '/^[a-z][a-z0-9]{3,15}$/',
     'password' => '/^(?=.*[a-z])(?=.*[0-9][a-z0-9]){8,15}$/',
@@ -35,11 +36,9 @@ $pattern = [
 ];
 
 if ($_POST['mode'] = 'modify') {
-    $name = $_POST['name'];
     $id = $_POST['id'];
     $password = $_POST['password'];
     $email = $_POST['email'];
-    $phoneNum = $_POST['phoneNum'];
     $normalNum = $_POST['normalNum'];
     $addressNum = $_POST['addressNum'];
     $address = $_POST['address'];
@@ -51,7 +50,6 @@ if ($_POST['mode'] = 'modify') {
     $isValid = [
         'id' => preg_match($pattern['id'], $id),
         'password' => preg_match($pattern['password'], $password),
-        'phoneNum' => preg_match($pattern['phoneNum'], $phoneNum),
         'addressNum' => preg_match($pattern['addressNum'], $addressNum)
     ];
 
@@ -66,7 +64,6 @@ if ($_POST['mode'] = 'modify') {
                     id = '{$id}',
                     password = '{$hashedPassword}',
                     email = '{$email}',
-                    phoneNum = '{$phoneNum}',
                     normalNum = '{$normalNum}',
                     addressNum = '{$addressNum}',
                     address = '{$address}',
@@ -74,11 +71,17 @@ if ($_POST['mode'] = 'modify') {
                     sendSMS = '{$sendSMS}',
                     sendEmail = '{$sendEmail}'
                 WHERE
-                    name = '{$name}' AND phoneNum =  '{phoneNum}'";
+                    name = 'name' AND phoneNum =  '{phoneNum}'";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($result);
+//        print_r($result);
+//        $row = mysqli_fetch_array($result);
+//        print_r($row);
+// mysqli_query() -> 내가 원하는 쿼리문 실해(CRUD 모두)
+// _query 로 요청 후에 데이터가 있다면 mysqli_fetch_array를 통해 변수에 담는것.
+// update / delete는 오는 데이터가 있는지 우선 확인.
+//그거에 따른 if()
 
-        if ($row) {
+        if (mysqli_query($conn, $sql)) {
             $_SESSION['id'] = $id;
             $_SESSION['password'] = $password;
 
@@ -87,6 +90,7 @@ if ($_POST['mode'] = 'modify') {
             ];
         } else {
             $responseData = [
+
                 "result" => false
             ];
         }

@@ -1,7 +1,7 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/login_header.php";
 
-//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 ?>
 
 <div class="login-section">

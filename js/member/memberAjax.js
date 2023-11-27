@@ -155,6 +155,7 @@ let inputChecks = {
 
 //회원가입 기능 구현
 $("#join_btn").click(function () {
+    console.log("회원가입 버튼 클릭")
     //공백 불가능
     inputChecks = {
         nameCheck: false,
@@ -170,7 +171,7 @@ $("#join_btn").click(function () {
     inputChecks['emailCheck'] = $("#email_input1").val() != '';
     inputChecks['addressNumCheck'] = $("#addressNum_input").val() != '';
 
-
+    console.log(Object.values(inputChecks).every(check => check));
     //ID 대문자 방지
     $("#id_input").on("keyup", function () {
         alert("아이디에는 대문자가 들어갈 수 없습니다.")
@@ -186,7 +187,7 @@ $("#join_btn").click(function () {
         $("#pw_input").focus();
         inputChecks['pwCheck'] = false;
     })
-
+    //
     // console.log($("#name_input").val())
     // console.log($("#id_input").val())
     // console.log($("#pw_input").val())
@@ -198,9 +199,11 @@ $("#join_btn").click(function () {
     // console.log(inputChecks['emailCheck'])
     // console.log(inputChecks['addressNumCheck'])
     // console.log(Object.values(inputChecks));
+    // console.log()
 
     if (Object.values(inputChecks).every(check => check)) {
         console.log(1)
+        console.log(Object.values(inputChecks).every(check => check));
         let nameInput = $("#name_input").val();
         let idInput = $("#id_input").val();
         let passwordInput = $("#pw_input").val();

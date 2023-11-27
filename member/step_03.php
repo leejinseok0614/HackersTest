@@ -1,6 +1,6 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
-
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 //
 //$hostname = "localhost";
 //#$hostname = "192.168.1.0";
@@ -90,13 +90,13 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                             <th scope="col"><span class="icons">*</span>휴대폰 번호</th>
                             <td>
                                 <input class="input-text phone" value="<?php
-                                echo substr($_SESSION['phoneNum'], 0, 3)
+                                echo substr($row['phoneNum'], 0, 3)
                                 ?>" style="width:50px" type="text"/> -
                                 <input class="input-text phone" value="<?php
-                                echo substr($_SESSION['phoneNum'], 3, 4)
+                                echo substr($row['phoneNum'], 3, 4)
                                 ?>" style="width:50px" type="text"/> -
                                 <input class="input-text phone" value="<?php
-                                echo substr($_SESSION['phoneNum'], 7, 4)
+                                echo substr($row['phoneNum'], 7, 4)
                                 ?>" style="width:50px" type="text"/>
                             </td>
                         </tr>

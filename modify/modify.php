@@ -1,7 +1,23 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
-//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
+
+//$hostname = "172.16.0.32";
+//$username = "dev_jinseok";
+//$password = "js9158214ok!";
+//$dbname = "practice";
+//
+//#phpinfo();
+//$conn = mysqli_connect($hostname, $username, $password, $dbname);
+
+$sql = "SELECT * FROM practice WHERE id = '{$_SESSION['id']}'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+
+//print_r($row);
 ?>
+
 <div class="container-full" id="container">
     <div class="content" id="content">
         <div class="inner">
@@ -24,8 +40,8 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                     <tbody>
                     <tr>
                         <th scope="col"><span class="icons">*</span>이름</th>
-                        <td><input class="input-text" type="text" value="<?php
-                            echo $_SESSION['id'];
+                        <td><input class="input-text" type="text" id="modify_input_name" value="<?php
+                            echo $row['name'];
                             ?>" style="width:302px"/></td>
                     </tr>
                     <tr>
@@ -61,29 +77,28 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                     <tr>
                         <th scope="col"><span class="icons">*</span>휴대폰 번호</th>
                         <td>
-                            <input value="<?php
-                            echo substr($_SESSION['phoneNum'], 0, 3)
-                            ?>" class="input-text normalNum" style="width:88px" type="text"/>
-                            - <input value="<?php
-                            echo substr($_SESSION['phoneNum'], 3, 4)
-                            ?>" class="input-text normalNum" style="width:88px" type="text"/>
-                            - <input value="<?php
-                            echo substr($_SESSION['phoneNum'], 7, 4)
-                            ?>" class="input-text normalNum" style="width:88px" type="text"/>
-                            <input value="<?= $_SESSION['phoneNum'] ?>" id="phone_num" type="hidden"/>
+                            <input class="input-text phone" value="<?php
+                            echo substr($row['phoneNum'], 0, 3)
+                            ?>" style="width:50px" type="text"/> -
+                            <input class="input-text phone" value="<?php
+                            echo substr($row['phoneNum'], 3, 4)
+                            ?>" style="width:50px" type="text"/> -
+                            <input class="input-text phone" value="<?php
+                            echo substr($row['phoneNum'], 7, 4)
+                            ?>" style="width:50px" type="text"/>
                         </td>
                     </tr>
                     <tr>
                         <th scope="col"><span class="icons"></span>일반전화 번호</th>
                         <td>
                             <input value="<?php
-                                echo substr($_SESSION['normalNum'], 0, 3)
+                            echo substr($row['normalNum'], 0, 3)
                             ?>" class="input-text normalNum" style="width:88px" type="text"/>
                             - <input value="<?php
-                                echo substr($_SESSION['normalNum'], 3, 4)
-                            ?>" class="input-text phonelNum" style="width:88px" type="text"/>
+                            echo substr($row['normalNum'], 3, 4)
+                            ?>" class="input-text normalNum" style="width:88px" type="text"/>
                             - <input value="<?php
-                                echo substr($_SESSION['normalNum'], 7, 4)
+                            echo substr($row['normalNum'], 7, 4)
                             ?>" class="input-text normalNum" style="width:88px" type="text"/>
                         </td>
                     </tr>
@@ -91,7 +106,7 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <th scope="col"><span class="icons">*</span>주소</th>
                         <td>
                             <p>
-                                <label>우편번호 <input class="input-text ml5" id="addressNum_input"
+                                <label>우편번호 <input class="input-text ml5" id="modify_addressNum"
                                                    style="width:242px" type="text"/></label><a
                                         class="btn-s-tin ml10" id="address_btn" href="#">주소찾기</a>
                             </p>
@@ -110,11 +125,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <td>
                             <div class="box-input">
                                 <label class="input-sp">
-                                    <input checked="checked" name="send_sms" type="radio" value=1/>
+                                    <input class="sms" checked="checked" name="sendSMS" type="radio" value=1>
                                     <span class="input-txt">수신함</span>
                                 </label>
                                 <label class="input-sp">
-                                    <input name="send_email" type="radio" value=2/>
+                                    <input class="sms" name="sendSMS" type="radio" value=0>
                                     <span class="input-txt">미수신</span>
                                 </label>
                             </div>
@@ -126,11 +141,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
                         <td>
                             <div class="box-input">
                                 <label class="input-sp">
-                                    <input checked="checked" id="" name="radio2" type="radio" value=1/>
+                                    <input class="email" checked="checked" name="sendEmail" type="radio" value=1>
                                     <span class="input-txt">수신함</span>
                                 </label>
                                 <label class="input-sp">
-                                    <input id="" name="radio2" type="radio" value=2/>
+                                    <input class="email" name="sendEmail" type="radio" value=0>
                                     <span class="input-txt">미수신</span>
                                 </label>
                             </div>

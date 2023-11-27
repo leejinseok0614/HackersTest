@@ -9,7 +9,6 @@ $modeActions = [
     'step_02' => "/member/step_02.php",
     'step_03' => "/member/step_03.php",
     'step_04' => "/member/step_complete.php",
-    'modify' => "/member/modify.php"
 ];
 
 //filname변수로 mode값에 해당하는 filename 넣기

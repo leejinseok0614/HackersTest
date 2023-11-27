@@ -1,5 +1,5 @@
 <?php
-session_start();
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 
 #include "member/header.php";
 #echo, print_r(), var_dump()$_SERVER['DOCUMENT_ROOT']."/header.php";

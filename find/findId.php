@@ -1,6 +1,6 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/header.php";
-//include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
 ?>
 
     <div class="container-full" id="container">

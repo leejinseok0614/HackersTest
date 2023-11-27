@@ -1,6 +1,7 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
+
 include $_SERVER["DOCUMENT_ROOT"] . "/layout/session.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/root.php";
 //$hostname = "172.16.0.32";
 //$username = "dev_jinseok";
 //$password = "js9158214ok!";
